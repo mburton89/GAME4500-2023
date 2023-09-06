@@ -19,6 +19,8 @@ public class Zombie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        target = FindObjectOfType<FPSController>().transform;
+
         agent = GetComponent<NavMeshAgent>();
         currentHealth = maxHealth;
     }
@@ -27,6 +29,14 @@ public class Zombie : MonoBehaviour
     void Update()
     {
         ChaseTarget();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.GetComponent<FPSController>())
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        }
     }
 
     public void EatBrain()
@@ -47,6 +57,7 @@ public class Zombie : MonoBehaviour
         if (currentHealth <= 0)
         {
             Instantiate(gutsPrefab, transform.position, transform.rotation, null);
+            ZombieSpawner.Instance.CountZombies();
             Destroy(gameObject);
         }
     }
