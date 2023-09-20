@@ -22,8 +22,10 @@ public class Cannon : MonoBehaviour
     void Shoot()
     {
     	print("Shoot");
-	GameObject newProjectile = Instantiate(projectilePrefab, spawnPoint.position, transform.rotation);
+	    GameObject newProjectile = Instantiate(projectilePrefab, spawnPoint.position, transform.rotation);
         newProjectile.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * launchSpeed);
+        shootSound.pitch = Random.Range(0.9f, 1.1f);
+        shootSound.Play();
         Destroy(newProjectile, 5);
     }
 }
