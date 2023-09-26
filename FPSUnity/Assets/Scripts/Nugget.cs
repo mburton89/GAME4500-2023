@@ -6,6 +6,7 @@ public class Nugget : MonoBehaviour
 {
     public float damageToGive;
     bool hasHitZombie = false;
+    public AudioSource hitSound;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -13,6 +14,7 @@ public class Nugget : MonoBehaviour
         {
             collision.gameObject.GetComponent<Zombie>().TakeDamage(damageToGive);
             hasHitZombie = true;
+            hitSound.Play();
         }
     }
 }
