@@ -12,6 +12,7 @@ public class Zombie : MonoBehaviour
     float currentHealth;
     public float maxHealth;
 
+    public GameObject healthBarContainer;
     public Image healthBarFill;
 
     public GameObject gutsPrefab;
@@ -51,6 +52,8 @@ public class Zombie : MonoBehaviour
 
     public void TakeDamage(float damageToGive)
     {
+        healthBarContainer.SetActive(true);
+
         currentHealth -= damageToGive;
         healthBarFill.fillAmount = currentHealth / maxHealth;
 

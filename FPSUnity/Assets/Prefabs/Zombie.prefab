@@ -148,6 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   maxHealth: 3
+  healthBarContainer: {fileID: 6203507610325532329}
   healthBarFill: {fileID: 6484412104060747525}
   gutsPrefab: {fileID: 2052538771950229947, guid: 61e861ac9794b1948988944cfe40c9b9, type: 3}
 --- !u!54 &4014202054055721272
@@ -270,7 +271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &69427721799189522
 RectTransform:
   m_ObjectHideFlags: 0
@@ -365,6 +366,7 @@ GameObject:
   - component: {fileID: 7207558058140392045}
   - component: {fileID: 3294079543493086643}
   - component: {fileID: 902643643058766675}
+  - component: {fileID: 7200645392187021282}
   m_Layer: 5
   m_Name: Image - HealthBarBorder
   m_TagString: Untagged
@@ -431,6 +433,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7200645392187021282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8791544037822685915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3abd0d2951dfc4660b324287973995c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9059955563916301124
 GameObject:
   m_ObjectHideFlags: 0
