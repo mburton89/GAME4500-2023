@@ -8,6 +8,7 @@ public class HUD : MonoBehaviour
 {
     public static HUD Instance;
     public TextMeshProUGUI waveText;
+    public TextMeshProUGUI ammoText;
 
     private void Awake()
     {
@@ -17,5 +18,10 @@ public class HUD : MonoBehaviour
     public void UpdateWaveUI(int wave)
     {
         waveText.SetText("Wave: " + wave);
+    }
+
+    public void UpdateCurrentAmmoCount(int currentAmmo)
+    {
+        ammoText.SetText("Nuggies: " + currentAmmo);
     }
 }

@@ -9,8 +9,15 @@ public class Cannon : MonoBehaviour
     public Transform spawnPoint;
     public GameObject projectilePrefab;
     public AudioSource shootSound;
+    public int startingAmmo;
+    int currentAmmo;
 
-    // Update is called once per frame
+    private void Start()
+    {
+        currentAmmo = startingAmmo;
+        HUD.Instance.UpdateCurrentAmmoCount(currentAmmo);
+    }
+
     void Update()
     {
         if(Input.GetMouseButtonDown(0))
@@ -21,11 +28,26 @@ public class Cannon : MonoBehaviour
 
     void Shoot()
     {
-    	print("Shoot");
-	    GameObject newProjectile = Instantiate(projectilePrefab, spawnPoint.position, transform.rotation);
-        newProjectile.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * launchSpeed);
-        shootSound.pitch = Random.Range(0.9f, 1.1f);
-        shootSound.Play();
-        Destroy(newProjectile, 5);
+        if (currentAmmo > 0)
+        {
+            print("Shoot");
+            GameObject newProjectile = Instantiate(projectilePrefab, spawnPoint.position, transform.rotation);
+            newProjectile.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * launchSpeed);
+            shootSound.pitch = Random.Range(0.9f, 1.1f);
+            shootSound.Play();
+            currentAmmo--;
+            HUD.Instance.UpdateCurrentAmmoCount(currentAmmo);
+            Destroy(newProjectile, 5);
+        }
+        else
+        { 
+            //TODO Play dud sound effect
+        }
+    }
+
+    public void HandleAmmoPickup(int ammoToGain)
+    {
+        currentAmmo += ammoToGain;
+        HUD.Instance.UpdateCurrentAmmoCount(currentAmmo);
     }
 }
