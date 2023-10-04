@@ -14,6 +14,7 @@ public class PlayerMovement: MonoBehaviour
     public float jumpCooldown;
     public float airMultiplier;
     bool readyToJump;
+    public float wallrunSpeed;
 
     [HideInInspector] public float walkSpeed;
     [HideInInspector] public float sprintSpeed;
@@ -34,6 +35,14 @@ public class PlayerMovement: MonoBehaviour
     Vector3 moveDirection;
 
     Rigidbody rb;
+
+    public MovementState state;
+    public enum MovementState
+    {
+        walrunning,
+    }
+
+    public bool wallrunning;
 
     private void Start()
     {
@@ -115,5 +124,14 @@ public class PlayerMovement: MonoBehaviour
     private void ResetJump()
     {
         readyToJump = true;
+    }
+
+    private void StateHandler()
+    {
+        if(wallrunning)
+        {
+            state = MovementState.walrunning;
+            moveSpeed = wallrunSpeed;
+        }
     }
 }
