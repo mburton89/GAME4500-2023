@@ -8281,8 +8281,14 @@ MonoBehaviour:
   fireRate: 0
   launchSpeed: 1000
   spawnPoint: {fileID: 7938564889785351446}
-  projectilePrefab: {fileID: 5550649103531685575, guid: 93fabd834aee03948b0be5c45eda4c70, type: 3}
+  projectilePrefab: {fileID: 2449629042911498648, guid: 2825cd76499b8b44995cf0bc7b6631bb, type: 3}
   shootSound: {fileID: 6394539742759762657}
+  startingAmmo: 20
+  useBlunderbuss: 1
+  blunderBussShotCount: 7
+  blunderbussSpreadRadius: 0.075
+  blunderbussTimeBetweenShots: 0.01
+  blunderbussYMultiplier: 3
 --- !u!1 &7698446144767045182
 GameObject:
   m_ObjectHideFlags: 0
