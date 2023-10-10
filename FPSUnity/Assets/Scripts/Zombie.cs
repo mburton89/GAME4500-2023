@@ -20,7 +20,7 @@ public class Zombie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = FindObjectOfType<FPSController>().transform;
+        //target = FindObjectOfType<FPSController>().transform;
 
         agent = GetComponent<NavMeshAgent>();
         currentHealth = maxHealth;
