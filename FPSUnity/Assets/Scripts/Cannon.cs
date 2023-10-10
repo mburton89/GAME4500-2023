@@ -30,7 +30,14 @@ public class Cannon : MonoBehaviour
         {
             if (useBlunderbuss)
             {
-                StartCoroutine(Blunderbuss(blunderBussShotCount, blunderbussSpreadRadius, blunderbussYMultiplier, blunderbussTimeBetweenShots));
+                if (currentAmmo > 0)
+                {
+                    StartCoroutine(Blunderbuss(blunderBussShotCount, blunderbussSpreadRadius, blunderbussYMultiplier, blunderbussTimeBetweenShots));
+                }
+                else
+                {
+                    //TODO Play dud sound effect
+                }
             }
             else
             {

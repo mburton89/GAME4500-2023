@@ -22,6 +22,6 @@ public class HUD : MonoBehaviour
 
     public void UpdateCurrentAmmoCount(int currentAmmo)
     {
-        ammoText.SetText("Nuggies: " + currentAmmo);
+        ammoText.SetText("Nuggie Clusters: " + currentAmmo);
     }
 }

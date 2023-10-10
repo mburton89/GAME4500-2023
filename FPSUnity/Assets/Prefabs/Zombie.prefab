@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  maxHealth: 3
+  maxHealth: 20
   healthBarContainer: {fileID: 6203507610325532329}
   healthBarFill: {fileID: 6484412104060747525}
   gutsPrefab: {fileID: 2052538771950229947, guid: 61e861ac9794b1948988944cfe40c9b9, type: 3}

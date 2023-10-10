@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.16037136, g: 0.10995286, b: 0.15011346, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -473,7 +473,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &573315394
 Transform:
   m_ObjectHideFlags: 0
@@ -1224,13 +1224,33 @@ PrefabInstance:
       propertyPath: m_fontColorGradient.bottomRight.g
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 756073147080080119, guid: 80aec131c79d544b98bc8a70075c2538, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 756073147080080119, guid: 80aec131c79d544b98bc8a70075c2538, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 756073147080080119, guid: 80aec131c79d544b98bc8a70075c2538, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1319181050690224147, guid: 80aec131c79d544b98bc8a70075c2538, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1319181050690224147, guid: 80aec131c79d544b98bc8a70075c2538, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 117.5
+      value: 17.5
       objectReference: {fileID: 0}
     - target: {fileID: 1319181050690224147, guid: 80aec131c79d544b98bc8a70075c2538, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -33.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936350483405204540, guid: 80aec131c79d544b98bc8a70075c2538, type: 3}
+      propertyPath: m_text
+      value: 'Nuggie Clusters: 0'
       objectReference: {fileID: 0}
     - target: {fileID: 2936350483405204540, guid: 80aec131c79d544b98bc8a70075c2538, type: 3}
       propertyPath: m_fontSize
@@ -1285,12 +1305,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3027327470145235057, guid: 80aec131c79d544b98bc8a70075c2538, type: 3}
+      propertyPath: m_Pivot.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3027327470145235057, guid: 80aec131c79d544b98bc8a70075c2538, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3027327470145235057, guid: 80aec131c79d544b98bc8a70075c2538, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -117.5
+      value: -17.499985
       objectReference: {fileID: 0}
     - target: {fileID: 3027327470145235057, guid: 80aec131c79d544b98bc8a70075c2538, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -33.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313469216124781894, guid: 80aec131c79d544b98bc8a70075c2538, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313469216124781894, guid: 80aec131c79d544b98bc8a70075c2538, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313469216124781894, guid: 80aec131c79d544b98bc8a70075c2538, type: 3}
+      propertyPath: m_Color.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3347636365565036717, guid: 80aec131c79d544b98bc8a70075c2538, type: 3}
       propertyPath: m_Pivot.x
