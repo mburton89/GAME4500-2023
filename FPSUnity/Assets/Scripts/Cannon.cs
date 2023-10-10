@@ -21,7 +21,10 @@ public class Cannon : MonoBehaviour
     private void Start()
     {
         currentAmmo = startingAmmo;
-        HUD.Instance.UpdateCurrentAmmoCount(currentAmmo);
+        if (HUD.Instance != null)
+        { 
+            HUD.Instance.UpdateCurrentAmmoCount(currentAmmo);
+        }
     }
 
     void Update()
@@ -55,13 +58,19 @@ public class Cannon : MonoBehaviour
             shootSound.pitch = Random.Range(0.9f, 1.1f);
             shootSound.Play();
             currentAmmo--;
-            HUD.Instance.UpdateCurrentAmmoCount(currentAmmo);
             Destroy(newProjectile, 5);
         }
         else
         { 
             //TODO Play dud sound effect
         }
+
+        if (currentAmmo < 0)
+        {
+            currentAmmo = 0;
+        }
+        HUD.Instance.UpdateCurrentAmmoCount(currentAmmo);
+
     }
 
     public void HandleAmmoPickup(int ammoToGain)
@@ -88,8 +97,13 @@ public class Cannon : MonoBehaviour
         shootSound.pitch = Random.Range(0.9f, 1.1f);
         shootSound.Play();
         currentAmmo--;
+
+        if (currentAmmo < 0)
+        {
+            currentAmmo = 0;
+        }
         HUD.Instance.UpdateCurrentAmmoCount(currentAmmo);
-        
+
     }
 
 }

@@ -8,16 +8,21 @@ public class ZombieSpawner : MonoBehaviour
 
     public GameObject zombiePrefab;
     public List<Transform> spawnPoints;
-    int wave;
+    [HideInInspector] public int wave;
 
-    FPSController player;
+    Transform player;
     public float minDistanceFromPlayer = 12f;
 
     private void Awake()
     {
         Instance = this;
         wave = 1;
-        player = FindObjectOfType<FPSController>();
+        player = FindObjectOfType<PlayerMovement>().transform;
+
+        foreach (Transform spawnPoint in spawnPoints)
+        {
+            spawnPoint.GetComponent<MeshRenderer>().enabled = false;
+        }
     }
 
     public void CountZombies()

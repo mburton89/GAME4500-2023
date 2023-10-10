@@ -23,7 +23,7 @@ public class AmmoPickup : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<FPSController>() && canBeCollected)
+        if (collision.gameObject.GetComponentInParent<PlayerMovement>() && canBeCollected)
         {
             StartCoroutine(HandleCollectedCo());
         }
@@ -31,7 +31,7 @@ public class AmmoPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<FPSController>() && canBeCollected)
+        if (other.gameObject.GetComponentInParent<PlayerMovement>() && canBeCollected)
         {
             StartCoroutine(HandleCollectedCo());
         }
