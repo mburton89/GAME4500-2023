@@ -43,7 +43,6 @@ public class Cannon : MonoBehaviour
     {
         if (currentAmmo > 0)
         {
-            print("Shoot");
             GameObject newProjectile = Instantiate(projectilePrefab, spawnPoint.position, transform.rotation);
             newProjectile.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * launchSpeed);
             shootSound.pitch = Random.Range(0.9f, 1.1f);

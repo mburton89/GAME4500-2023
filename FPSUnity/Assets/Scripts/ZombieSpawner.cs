@@ -28,7 +28,6 @@ public class ZombieSpawner : MonoBehaviour
 
     void SpawnWaveOfZombies()
     {
-        Debug.Log("SpawnWaveOfZombies");
 
         wave++;
 
