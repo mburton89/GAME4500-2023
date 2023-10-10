@@ -6,6 +6,15 @@ public class AmmoPickup : MonoBehaviour
 {
     public int AmmoToGive = 10;
     public float rotationSpeed = 30.0f;
+    public float secondsToRespawn = 30.0f;
+
+    bool canBeCollected = true;
+    MeshRenderer meshRenderer;
+
+    private void Start()
+    {
+        meshRenderer = GetComponent<MeshRenderer>();
+    }
 
     private void Update()
     {
@@ -14,20 +23,28 @@ public class AmmoPickup : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<FPSController>())
+        if (collision.gameObject.GetComponentInParent<PlayerMovement>() && canBeCollected)
         {
-            FindObjectOfType<Cannon>().HandleAmmoPickup(10);
-            Destroy(gameObject);
+            StartCoroutine(HandleCollectedCo());
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<FPSController>())
+        if (other.gameObject.GetComponentInParent<PlayerMovement>() && canBeCollected)
         {
-            FindObjectOfType<Cannon>().HandleAmmoPickup(10);
-            SoundManager.Instance.ammoPickup.Play();
-            Destroy(gameObject);
+            StartCoroutine(HandleCollectedCo());
         }
+    }
+
+    private IEnumerator HandleCollectedCo()
+    {
+        meshRenderer.enabled = false;
+        FindObjectOfType<Cannon>().HandleAmmoPickup(AmmoToGive);
+        SoundManager.Instance.ammoPickup.Play();
+        canBeCollected = false;
+        yield return new WaitForSeconds(secondsToRespawn);
+        canBeCollected = true;
+        meshRenderer.enabled = true;
     }
 }

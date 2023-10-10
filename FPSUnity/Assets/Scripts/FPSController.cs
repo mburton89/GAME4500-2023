@@ -13,12 +13,15 @@ public class FPSController : MonoBehaviour
     private float verticalRotation = 0;
     private float verticalVelocity = 0;
 
+    Animator animator;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
         characterController = GetComponent<CharacterController>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -53,5 +56,14 @@ public class FPSController : MonoBehaviour
         }
 
         characterController.Move(movement * Time.deltaTime);
+
+        if (moveForward > 0.1f || moveForward < -0.1f || moveSideways > 0.1f || moveSideways < -0.1f)
+        {
+            animator.enabled = true;
+        }
+        else
+        {
+            animator.enabled = false;
+        }
     }
 }

@@ -20,7 +20,7 @@ public class Zombie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = FindObjectOfType<FPSController>().transform;
+        target = FindObjectOfType<PlayerMovement>().transform;
 
         agent = GetComponent<NavMeshAgent>();
         currentHealth = maxHealth;
@@ -34,9 +34,9 @@ public class Zombie : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<FPSController>())
+        if (collision.gameObject.GetComponent<PlayerMovement>())
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            HUD.Instance.GameOver();
         }
     }
 

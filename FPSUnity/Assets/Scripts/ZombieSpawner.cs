@@ -8,12 +8,21 @@ public class ZombieSpawner : MonoBehaviour
 
     public GameObject zombiePrefab;
     public List<Transform> spawnPoints;
-    int wave;
+    [HideInInspector] public int wave;
+
+    Transform player;
+    public float minDistanceFromPlayer = 12f;
 
     private void Awake()
     {
         Instance = this;
         wave = 1;
+        player = FindObjectOfType<PlayerMovement>().transform;
+
+        foreach (Transform spawnPoint in spawnPoints)
+        {
+            spawnPoint.GetComponent<MeshRenderer>().enabled = false;
+        }
     }
 
     public void CountZombies()
@@ -28,12 +37,26 @@ public class ZombieSpawner : MonoBehaviour
 
     void SpawnWaveOfZombies()
     {
-
         wave++;
 
         for (int i = 0; i < wave; i++) 
         {
-            int rand = Random.Range(0, spawnPoints.Count - 1);
+            bool isTooCloseToZombie = true;
+            int rand = 0;
+
+            while (isTooCloseToZombie)
+            {
+                rand = Random.Range(0, spawnPoints.Count - 1);
+
+                if (Vector3.Distance(spawnPoints[rand].position, player.transform.position) > minDistanceFromPlayer)
+                {
+                    isTooCloseToZombie = false;
+                }
+                else
+                {
+                    isTooCloseToZombie = true;
+                }
+            }
 
             Instantiate(zombiePrefab, spawnPoints[rand].position, Quaternion.identity, transform);
         }

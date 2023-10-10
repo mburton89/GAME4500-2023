@@ -44,6 +44,8 @@ public class PlayerMovement: MonoBehaviour
 
     public bool wallrunning;
 
+    public Animator animator;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -85,6 +87,15 @@ public class PlayerMovement: MonoBehaviour
             Jump();
 
             Invoke(nameof(ResetJump), jumpCooldown);
+        }
+
+        if (rb.velocity.magnitude > 0.1f || rb.velocity.magnitude < -0.1f)
+        {
+            animator.enabled = true;
+        }
+        else
+        {
+            animator.enabled = false;
         }
     }
 
